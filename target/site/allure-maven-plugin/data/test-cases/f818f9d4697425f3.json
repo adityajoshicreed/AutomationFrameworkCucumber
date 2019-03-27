@@ -1,0 +1,93 @@
+{
+  "uid" : "f818f9d4697425f3",
+  "name" : "Login to Yahoo in Chrome",
+  "fullName" : "Login: Login to Yahoo in Chrome",
+  "historyId" : "14c0e046975bbdf2d16389f3d0361757",
+  "time" : {
+    "start" : 1553683672665,
+    "stop" : 1553683672877,
+    "duration" : 212
+  },
+  "status" : "passed",
+  "statusDetails" : {
+    "flaky" : false
+  },
+  "description" : "Login to Yahoo",
+  "descriptionHtml" : "<p>Login to Yahoo</p>",
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "statusDetails" : {
+      "flaky" : false
+    },
+    "steps" : [ {
+      "name" : "Given  I go to yahoo",
+      "time" : {
+        "start" : 1553683672675,
+        "stop" : 1553683672870,
+        "duration" : 195
+      },
+      "status" : "passed",
+      "hasContent" : false,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ]
+    }, {
+      "name" : "When  enter \"adi\" in test field",
+      "time" : {
+        "start" : 1553683672872,
+        "stop" : 1553683672877,
+        "duration" : 5
+      },
+      "status" : "passed",
+      "hasContent" : false,
+      "stepsCount" : 0,
+      "attachmentsCount" : 0,
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ]
+    } ],
+    "attachments" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 2,
+    "attachmentsCount" : 0
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "Login"
+  }, {
+    "name" : "story",
+    "value" : "Login to Yahoo in Chrome"
+  }, {
+    "name" : "host",
+    "value" : "DSCHD-PC-054"
+  }, {
+    "name" : "thread",
+    "value" : "8284@DSCHD-PC-054.main(1)"
+  }, {
+    "name" : "package",
+    "value" : "Login"
+  }, {
+    "name" : "suite",
+    "value" : "Login"
+  }, {
+    "name" : "testClass",
+    "value" : "Login to Yahoo in Chrome"
+  }, {
+    "name" : "framework",
+    "value" : "cucumberjvm"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "extra" : {
+    "severity" : "normal",
+    "categories" : [ ]
+  }
+}
