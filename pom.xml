@@ -14,14 +14,6 @@
 			<version>3.141.59</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-junit -->
-		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-junit</artifactId>
-			<version>1.2.5</version>
-			<scope>test</scope>
-		</dependency>
-
 		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
 		<dependency>
 			<groupId>info.cukes</groupId>
@@ -66,6 +58,7 @@
 			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-testng</artifactId>
 			<version>1.2.5</version>
+			<scope>test</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
@@ -92,7 +85,12 @@
 			<artifactId>allure-cucumber-jvm</artifactId>
 			<version>2.10.0</version>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-picocontainer -->
+		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>1.2.5</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -114,8 +112,8 @@
 						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.2/aspectjweaver-1.9.2.jar"
 					</argLine>
 					<systemPropertyVariables>
-                    <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
-                    </systemPropertyVariables>
+						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+					</systemPropertyVariables>
 				</configuration>
 				<dependencies>
 					<dependency>

@@ -8,7 +8,7 @@ import constants.Constants;
 public class ChromeBrowser extends DriverManager{
 
 	@Override
-	protected void startBrowser(String methodName) {
+	protected void startBrowser() {
 		  System.setProperty("webdriver.chrome.driver",Constants.chromePath); 
 		  ChromeOptions opt = new ChromeOptions();
 		  opt.addArguments("--headless");

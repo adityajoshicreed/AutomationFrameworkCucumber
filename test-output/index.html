@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-skipped">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -54,7 +54,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-Suite">
-                    <span class="test-stats">1 test</span>
+                    <span class="test-stats">2 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,21 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,  1 skipped,  </span>
+                    <span class="method-stats">1 method, 1 failed,   </span>
                   </li>
                   <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-Suite" class="hide-methods skipped suite-Suite"> (hide)</a> <!-- hide-methods skipped suite-Suite -->
-                      <a href="#" panel-name="suite-Suite" class="show-methods skipped suite-Suite"> (show)</a> <!-- show-methods skipped suite-Suite -->
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
                     </span>
-                    <div class="method-list-content skipped suite-Suite">
+                    <div class="method-list-content failed suite-Suite">
                       <span>
-                        <img width="3%" src="skipped.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Runner.TestRunner" hash-for-method="runTest">runTest</a> <!-- method navigator-link -->
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="Runner.TestRunner" hash-for-method="feature(Login)">feature(Login)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content skipped suite-Suite -->
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -117,25 +117,35 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
-          <div class="suite-Suite-class-skipped">
+          <div class="suite-Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
+              <img src="failed.png"/>
               <span class="class-name">Runner.TestRunner</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="runTest">
-                  </a> <!-- runTest -->
-                  <span class="method-name">runTest</span>
-                  <div class="stack-trace">org.testng.TestNGException: 
-Method runTest requires 1 parameters but 0 were supplied in the @Test annotation.
-... Removed 23 stack frames
+                  <a name="feature(Login)">
+                  </a> <!-- feature(Login) -->
+                  <span class="method-name">feature</span>
+                  <span class="parameters">(Login)</span>
+                  <div class="stack-trace">cucumber.runtime.CucumberException: java.lang.AssertionError: expected [true] but found [false]
+	at cucumber.api.testng.TestNGCucumberRunner.runCucumber(TestNGCucumberRunner.java:69)
+	at cucumber.api.testng.AbstractTestNGCucumberTests.feature(AbstractTestNGCucumberTests.java:21)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.lang.AssertionError: expected [true] but found [false]
+	at StepDefination.Login.enter_in_test_field(Login.java:27)
+	at ✽.When enter &quot;adi&quot; in test field(Login.feature:6)
+... Removed 14 stack frames
 </div> <!-- stack-trace -->
+                  <em>
+(Runs Cucumber Feature)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Suite-class-skipped -->
+          </div> <!-- suite-Suite-class-failed -->
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -145,12 +155,27 @@ Method runTest requires 1 parameters but 0 were supplied in the @Test annotation
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot;&gt;
-  &lt;test thread-count=&quot;2&quot; name=&quot;Test&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Suite&quot; parallel=&quot;methods&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot; parallel=&quot;methods&quot;&gt;
+    &lt;packages&gt;
+      &lt;package name=&quot;Runner&quot;/&gt;
+    &lt;/packages&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;Runner.BaseClass&quot;/&gt;
       &lt;class name=&quot;Runner.TestRunner&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Test --&gt;
+  &lt;test name=&quot;Test(failed)&quot; parallel=&quot;methods&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;Runner.TestRunner&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;setUpClass&quot;/&gt;
+          &lt;include name=&quot;feature&quot; invocation-numbers=&quot;0&quot;/&gt;
+          &lt;include name=&quot;tearDownClass&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- Runner.TestRunner --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Test(failed) --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -162,7 +187,10 @@ Method runTest requires 1 parameters but 0 were supplied in the @Test annotation
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Test (2 classes)</span>
+              </li>
+              <li>
+                <span class="test-name">Test(failed) (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -176,7 +204,7 @@ Method runTest requires 1 parameters but 0 were supplied in the @Test annotation
               <span class="test-group-name">cucumber</span>
               <br/>
               <div class="method-in-group">
-                <span class="method-in-group-name">runTest</span>
+                <span class="method-in-group-name">feature</span>
                 <br/>
               </div> <!-- method-in-group -->
             </div> <!-- test-group -->
@@ -198,14 +226,14 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'runTest')
+data.setCell(0, 1, 'feature')
 data.setCell(0, 2, 'Runner.TestRunner')
-data.setCell(0, 3, 0);
+data.setCell(0, 3, 13732);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 0 ms</span>
+              <span class="suite-total-time">Total running time: 13 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -233,12 +261,18 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">Runner.TestRunner</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
-                <span class="method-name">setup</span>
+                <span class="method-name">setUpClass</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">feature(Login)</span>
+                <span class="method-start">924 ms</span>
+              </div> <!-- test-method -->
               <div class="configuration-class after">
-                <span class="method-name">shutDown</span>
-                <span class="method-start">240 ms</span>
+                <span class="method-name">tearDownClass</span>
+                <span class="method-start">14656 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
