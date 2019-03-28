@@ -5,6 +5,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import driver.DriverFactory;
@@ -31,7 +32,10 @@ public class Hooks{
 	}
 
 	@After
-	public void closeDriver() {
+	public void closeDriver(Scenario sc) {
+		if(sc.isFailed()) {
+			saveScreenshot();
+		}
 		driverManager.quitDriver();
 	}
 
