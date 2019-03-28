@@ -111,7 +111,7 @@
 					<argLine>${surefireArgLine} -Xms1024m -Xmx2048m
 						-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
 					<argLine>
-						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.9.2/aspectjweaver-1.9.2.jar"
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/1.8.10/aspectjweaver-1.8.10.jar"
 					</argLine>
 					<systemPropertyVariables>
 						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
@@ -121,7 +121,7 @@
 					<dependency>
 						<groupId>org.aspectj</groupId>
 						<artifactId>aspectjweaver</artifactId>
-						<version>1.9.2</version>
+						<version>1.8.10</version>
 					</dependency>
 				</dependencies>
 			</plugin>
