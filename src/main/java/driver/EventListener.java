@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
 
-public class EventListener  implements WebDriverEventListener{
+public class EventListener implements WebDriverEventListener{
 
 	public void afterAlertAccept(WebDriver arg0) {
 		// TODO Auto-generated method stub
