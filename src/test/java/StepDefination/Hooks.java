@@ -17,10 +17,8 @@ import io.qameta.allure.Attachment;
 public class Hooks extends BaseClass{
 	
 	DriverManager driverManager;
-//	public WebDriver driver;
 	DriverFactory df = new DriverFactory();
 	private String browserName = "Chrome";
-//	public EventFiringWebDriver eDriver;
 	public EventListener handle;
 	private BaseClass base;
 	
@@ -40,17 +38,15 @@ public class Hooks extends BaseClass{
 	@After
 	public void closeDriver(Scenario sc) {
 		if(sc.isFailed()) {
-			saveScreenshot();
+			saveScreenshot(driver);
+			driverManager.quitDriver();
 		}
 		driverManager.quitDriver();
-//		base.driver.quit();
 	}
 
 	@Attachment(value = "Page screenshot", type = "image/png")
-	public byte[] saveScreenshot() {
-		return ((TakesScreenshot) base.driver).getScreenshotAs(OutputType.BYTES);
+	public byte[] saveScreenshot(WebDriver driver) {
+		return ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
 	}
 	
-
-
 }
