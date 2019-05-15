@@ -14,32 +14,37 @@
 			<version>3.141.59</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-java -->
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm -->
 		<dependency>
-			<groupId>info.cukes</groupId>
-			<artifactId>cucumber-java</artifactId>
-			<version>1.2.5</version>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-jvm</artifactId>
+			<version>4.2.0</version>
+			<type>pom</type>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-core -->
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-core -->
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-core</artifactId>
-			<version>1.2.5</version>
+			<version>4.2.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/info.cukes/gherkin -->
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/gherkin -->
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>gherkin</artifactId>
-			<version>2.12.2</version>
-			<scope>provided</scope>
+			<version>5.1.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-jvm-deps -->
+
+
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-jvm-deps -->
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-jvm-deps</artifactId>
-			<version>1.0.5</version>
+			<version>1.0.6</version>
 			<scope>provided</scope>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/net.masterthought/cucumber-reporting -->
 		<dependency>
 			<groupId>net.masterthought</groupId>
@@ -53,13 +58,13 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-testng -->
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-testng</artifactId>
-			<version>1.2.5</version>
-			<scope>test</scope>
+			<version>4.2.0</version>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
@@ -82,14 +87,22 @@
 		<!-- https://mvnrepository.com/artifact/io.qameta.allure/allure-cucumber-jvm -->
 		<dependency>
 			<groupId>io.qameta.allure</groupId>
-			<artifactId>allure-cucumber-jvm</artifactId>
+			<artifactId>allure-cucumber4-jvm</artifactId>
 			<version>2.10.0</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/info.cukes/cucumber-picocontainer -->
+		<!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
 		<dependency>
-			<groupId>info.cukes</groupId>
+			<groupId>io.cucumber</groupId>
 			<artifactId>cucumber-picocontainer</artifactId>
-			<version>1.2.5</version>
+			<version>4.2.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.11.1</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjrt -->

@@ -1,5 +1,7 @@
 package driver;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +10,8 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 public class EventListener implements WebDriverEventListener{
 
+	public final Logger log = LogManager.getLogger("Log");
+	
 	public void afterAlertAccept(WebDriver arg0) {
 		// TODO Auto-generated method stub
 		
@@ -19,18 +23,15 @@ public class EventListener implements WebDriverEventListener{
 	}
 
 	public void afterChangeValueOf(WebElement arg0, WebDriver arg1, CharSequence[] arg2) {
-		// TODO Auto-generated method stub
-		
+		log.info("Entered value in the text field");
 	}
 
 	public void afterClickOn(WebElement arg0, WebDriver arg1) {
-		// TODO Auto-generated method stub
-		
+		log.info("Clicked on WebElement");
 	}
 
 	public void afterFindBy(By arg0, WebElement arg1, WebDriver arg2) {
-		// TODO Auto-generated method stub
-		
+		log.info("Found WebElement");
 	}
 
 	public <X> void afterGetScreenshotAs(OutputType<X> arg0, X arg1) {
@@ -59,8 +60,7 @@ public class EventListener implements WebDriverEventListener{
 	}
 
 	public void afterNavigateTo(String arg0, WebDriver arg1) {
-		// TODO Auto-generated method stub
-		
+		log.info("Navigated to webpage "+arg0);
 	}
 
 	public void afterScript(String arg0, WebDriver arg1) {

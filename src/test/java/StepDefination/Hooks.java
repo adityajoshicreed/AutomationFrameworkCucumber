@@ -1,5 +1,7 @@
 package StepDefination;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -9,27 +11,26 @@ import base.BaseClass;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import driver.DriverFactory;
-import driver.DriverManager;
 import driver.EventListener;
+import driver.GenerateDriver;
+import driver.MissingValidMavenArgument;
 import io.qameta.allure.Attachment;
 
 public class Hooks extends BaseClass{
 	
-	DriverManager driverManager;
-	DriverFactory df = new DriverFactory();
+	private GenerateDriver gd = new GenerateDriver();
 	private String browserName = "Chrome";
-	public EventListener handle;
+	private EventListener handle;
 	private BaseClass base;
+	private final Logger log = LogManager.getLogger("Log");
 	
 	public Hooks(BaseClass base) {
 		this.base = base;
 	}
 
 	@Before
-	public void generateDriver() {
-		driverManager = df.getManager(browserName);
-		driver = driverManager.getDriver();
+	public void generateDriver(Scenario sc) throws MissingValidMavenArgument {
+		driver = gd.getDriver(browserName);
 		base.eDriver=new EventFiringWebDriver(driver);
 		handle = new EventListener();
 		base.eDriver.register(handle);
@@ -39,9 +40,10 @@ public class Hooks extends BaseClass{
 	public void closeDriver(Scenario sc) {
 		if(sc.isFailed()) {
 			saveScreenshot(driver);
-			driverManager.quitDriver();
+			log.info("Added Screenshot to report.");
+			gd.driverQuit();
 		}
-		driverManager.quitDriver();
+		gd.driverQuit();
 	}
 
 	@Attachment(value = "Page screenshot", type = "image/png")
