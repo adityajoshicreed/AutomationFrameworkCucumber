@@ -41,8 +41,10 @@ public class Hooks extends BaseClass{
 		if(sc.isFailed()) {
 			saveScreenshot(driver);
 			log.info("Added Screenshot to report.");
+			base.eDriver.unregister(handle);
 			gd.driverQuit();
 		}
+		base.eDriver.unregister(handle);
 		gd.driverQuit();
 	}
 

@@ -9,7 +9,7 @@ Feature: Login
       | username |
       | adi      |
 
-  Scenario Outline: Login to Yahoo 
+  Scenario Outline: Login to Yahoo
     Given I go to yahoo
     When enter "<username>" in test field
 

@@ -4,20 +4,23 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
+import driver.implemets.Chrome;
+import driver.implemets.FireFox;
+import driver.implemets.Grid;
+
 public class GenerateDriver {
 
 	private WebDriver driver;
 	private MissingValidMavenArgument nde = new MissingValidMavenArgument("No Driver Manager Specified");
-	private DriverDefine driverDef = new DriverDefine();
 	private final Logger log = LogManager.getLogger("Log");
 	
 	public WebDriver getDriver(String type) throws MissingValidMavenArgument {
 		if (type.equals("Chrome")) {
-			driver = driverDef.getChrome();
+			driver = new Chrome().genDriver();
 		} else if (type.equals("FireFox")) {
-			driver = driverDef.getFireFox();
+			driver = new FireFox().genDriver();
 		} else if (type.equals("Grid")) {
-			driver = driverDef.getGrid();
+			driver = new Grid().genDriver();
 		} else {
 			throw nde;
 		}
