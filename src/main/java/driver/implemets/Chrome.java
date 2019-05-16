@@ -13,7 +13,7 @@ public class Chrome extends DriverFactory{
 	public WebDriver genDriver() {
 		System.setProperty("webdriver.chrome.driver", Constants.chromePath);
 		ChromeOptions opt = new ChromeOptions();
-		opt.addArguments("--headless");
+//		opt.addArguments("--headless");
 		opt.addArguments("--no-sandbox");
 		opt.addArguments("--disable-dev-shm-usage");
 		driver = new ChromeDriver(opt);

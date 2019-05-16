@@ -19,7 +19,7 @@ import io.qameta.allure.Attachment;
 public class Hooks extends BaseClass{
 	
 	private GenerateDriver gd = new GenerateDriver();
-	private String browserName = "Chrome";
+	private String browserName = System.getProperty("browser");
 	private EventListener handle;
 	private BaseClass base;
 	private final Logger log = LogManager.getLogger("Log");

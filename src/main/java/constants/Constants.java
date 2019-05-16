@@ -2,7 +2,7 @@ package constants;
 
 public class Constants {
 
-	public final static String browserName = System.getProperty("browser");
+//	public final static String browserName = System.getProperty("browser");
 	public final static String chromePath = getDriverPath();
 	public final static String firefoxPath = "C:/AutomationDrivers/geckodriver.exe";
 	public final static String url = "https://login.yahoo.com/";
